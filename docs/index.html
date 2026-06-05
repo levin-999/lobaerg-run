@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Lobaerg-Run 2026 in Ersigen vom 19. bis 28. Juni 2026." />
+    <title>Lobaerg-Run 2026 | Ersigen</title>
+    <style>
+      :root {
+        --paper: #f4f1e7;
+        --ink: #182118;
+        --forest: #213322;
+        --moss: #58774a;
+        --lime: #d7ef65;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        width: min(100% - 40px, 1180px);
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(24, 33, 24, 0.1);
+        background: rgba(244, 241, 231, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        min-height: 66px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.88rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        color: rgba(24, 33, 24, 0.72);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border-radius: 999px;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        background: var(--ink);
+        color: var(--white);
+        font-size: 0.94rem;
+        font-weight: 800;
+        transition: transform 160ms ease, background 160ms ease, color 160ms ease, border 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        background: var(--moss);
+      }
+
+      .button.light {
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      .button.light:hover {
+        background: var(--lime);
+      }
+
+      .button.outline {
+        border-color: rgba(24, 33, 24, 0.22);
+        background: rgba(255, 255, 255, 0.74);
+        color: var(--ink);
+      }
+
+      .button.outline:hover {
+        border-color: var(--moss);
+        color: var(--moss);
+        background: var(--white);
+      }
+
+      .arrow {
+        width: 17px;
+        height: 17px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 690px;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        content: "";
+        background: url("https://scersigen.ch/wp-content/uploads/run1-1024x285.jpg") center / cover no-repeat;
+        transform: scale(1.1);
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        background: linear-gradient(90deg, rgba(22, 33, 24, 0.94), rgba(22, 33, 24, 0.72) 44%, rgba(22, 33, 24, 0.22));
+      }
+
+      .hero-grid {
+        display: grid;
+        min-height: 690px;
+        align-items: center;
+        gap: 48px;
+        padding: 76px 0;
+      }
+
+      .eyebrow,
+      .section-kicker,
+      .card-kicker {
+        font-size: 0.78rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        color: var(--lime);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-top: 18px;
+        color: var(--white);
+        font-size: clamp(3.4rem, 8vw, 6.9rem);
+        font-weight: 950;
+        line-height: 0.94;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+        margin-top: 25px;
+        color: rgba(255, 255, 255, 0.87);
+        font-size: clamp(1.08rem, 2vw, 1.25rem);
+        line-height: 1.72;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .fact-panel {
+        display: grid;
+        gap: 12px;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .fact {
+        min-height: 126px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 18px;
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+      }
+
+      .fact .label {
+        color: var(--moss);
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .fact strong {
+        display: block;
+        margin-top: 10px;
+        font-size: clamp(1.08rem, 2vw, 1.28rem);
+        font-weight: 950;
+      }
+
+      .fact span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(24, 33, 24, 0.66);
+        font-size: 0.92rem;
+      }
+
+      .discipline {
+        border-radius: 8px;
+        background: var(--lime);
+        padding: 20px;
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+      }
+
+      .discipline strong {
+        display: block;
+        margin-top: 9px;
+        font-size: clamp(1.25rem, 3vw, 1.7rem);
+        line-height: 1.14;
+      }
+
+      .notice {
+        border-block: 1px solid rgba(24, 33, 24, 0.1);
+        background: var(--white);
+      }
+
+      .notice-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1fr auto;
+        align-items: center;
+        gap: 26px;
+        padding: 30px 0;
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .section.white {
+        background: var(--white);
+      }
+
+      .section.dark {
+        background: var(--forest);
+        color: var(--white);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 44px;
+      }
+
+      .section-kicker {
+        color: var(--moss);
+      }
+
+      .dark .section-kicker {
+        color: var(--lime);
+      }
+
+      .section-title {
+        max-width: 760px;
+        margin-top: 12px;
+        font-size: clamp(2.2rem, 5vw, 4.4rem);
+        font-weight: 950;
+        line-height: 0.98;
+      }
+
+      .lead {
+        margin-top: 22px;
+        color: rgba(24, 33, 24, 0.68);
+        font-size: 1.03rem;
+        line-height: 1.75;
+      }
+
+      .dark .lead,
+      .dark .body-copy {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .route-grid,
+      .info-grid,
+      .record-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 1px 0 rgba(24, 33, 24, 0.04);
+      }
+
+      .route-image {
+        height: 270px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 22px;
+      }
+
+      .card-kicker {
+        color: var(--moss);
+      }
+
+      .route-distance {
+        margin-top: 6px;
+        font-size: 2.65rem;
+        font-weight: 950;
+      }
+
+      .body-copy {
+        margin-top: 13px;
+        color: rgba(24, 33, 24, 0.67);
+        line-height: 1.72;
+      }
+
+      .inline-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        color: var(--moss);
+        font-size: 0.95rem;
+        font-weight: 900;
+      }
+
+      .team-cards {
+        display: grid;
+        gap: 16px;
+      }
+
+      .team-card,
+      .record-card {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 22px;
+      }
+
+      .team-card h3,
+      .info-card h3 {
+        font-size: 1.28rem;
+        font-weight: 950;
+      }
+
+      .info-card {
+        min-height: 190px;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 22px;
+      }
+
+      .prize-grid,
+      .arrival-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 42px;
+        align-items: stretch;
+      }
+
+      .prize-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .prize-list span {
+        border-radius: 8px;
+        background: rgba(215, 239, 101, 0.6);
+        padding: 16px;
+        font-weight: 900;
+      }
+
+      .media-image {
+        min-height: 310px;
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 1px 0 rgba(24, 33, 24, 0.04);
+      }
+
+      .arrival-card {
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 28px;
+      }
+
+      .arrival-heading {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .pin {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--lime);
+      }
+
+      .program-card {
+        overflow: hidden;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .program-card img {
+        width: 100%;
+        height: 335px;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .record-card .card-kicker {
+        color: var(--lime);
+      }
+
+      .record-card strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.25rem;
+      }
+
+      .sponsor-showcase {
+        display: grid;
+        gap: 18px;
+        min-width: 0;
+      }
+
+      .sponsor-window {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        padding: 14px 0;
+      }
+
+      .sponsor-window::before,
+      .sponsor-window::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 48px;
+        content: "";
+        pointer-events: none;
+      }
+
+      .sponsor-window::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--paper), rgba(244, 241, 231, 0));
+      }
+
+      .sponsor-window::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--paper), rgba(244, 241, 231, 0));
+      }
+
+      .sponsor-track {
+        display: flex;
+        width: max-content;
+        gap: 12px;
+        padding: 0 14px;
+        animation: sponsor-scroll 52s linear infinite;
+      }
+
+      .sponsor-track.reverse {
+        animation-duration: 58s;
+        animation-direction: reverse;
+      }
+
+      .sponsor-window:hover .sponsor-track {
+        animation-play-state: paused;
+      }
+
+      .sponsor-logo {
+        display: grid;
+        flex: 0 0 166px;
+        height: 88px;
+        place-items: center;
+        border: 1px solid rgba(24, 33, 24, 0.09);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 14px;
+      }
+
+      .sponsor-logo img {
+        max-height: 58px;
+        width: auto;
+        max-width: 138px;
+        object-fit: contain;
+      }
+
+      .sponsor-logo.square img {
+        max-height: 66px;
+      }
+
+      .sponsor-note {
+        display: grid;
+        gap: 12px;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 20px;
+      }
+
+      .sponsor-note h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 950;
+      }
+
+      @keyframes sponsor-scroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .sponsor-track {
+          animation: none;
+        }
+      }
+
+      .footer {
+        border-top: 1px solid rgba(24, 33, 24, 0.1);
+        background: var(--white);
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 30px 0;
+        color: rgba(24, 33, 24, 0.66);
+        font-size: 0.95rem;
+      }
+
+      .footer strong {
+        color: var(--ink);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      @media (min-width: 880px) {
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
+
+        .fact-panel {
+          justify-self: end;
+          max-width: 530px;
+        }
+      }
+
+      @media (max-width: 879px) {
+        .wrap {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero,
+        .hero-grid {
+          min-height: auto;
+        }
+
+        .hero-grid {
+          padding: 62px 0 44px;
+        }
+
+        .hero::after {
+          background: linear-gradient(180deg, rgba(22, 33, 24, 0.92), rgba(22, 33, 24, 0.78));
+        }
+
+        .facts,
+        .route-grid,
+        .info-grid,
+        .record-grid,
+        .section-grid,
+        .prize-grid,
+        .arrival-grid,
+        .notice-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sponsor-window {
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .sponsor-window::before,
+        .sponsor-window::after {
+          display: none;
+        }
+
+        .sponsor-track,
+        .sponsor-track.reverse {
+          animation: none;
+        }
+
+        .sponsor-logo {
+          flex-basis: 150px;
+          scroll-snap-align: start;
+        }
+
+        .notice-grid {
+          align-items: start;
+        }
+
+        .section {
+          padding: 64px 0;
+        }
+
+        .prize-list {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .brand span {
+          display: none;
+        }
+
+        .button {
+          padding-inline: 15px;
+          font-size: 0.88rem;
+        }
+
+        .facts {
+          grid-template-columns: 1fr;
+        }
+
+        .route-image {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="wrap nav">
+        <a class="brand" href="#top" aria-label="Lobaerg-Run Start">
+          <img src="https://scersigen.ch/wp-content/uploads/Logo_Loba%CC%88rg-Run-927x1024.png" alt="" />
+          <span>Lobaerg-Run</span>
+        </a>
+        <div class="nav-links" aria-label="Navigation">
+          <a href="#strecken">Strecken</a>
+          <a href="#team">Team</a>
+          <a href="#info">Info</a>
+          <a href="#sponsoren">Sponsoren</a>
+        </div>
+        <a class="button" href="https://trackmaxx.ch/registration/?race=LBR26">Anmelden</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="top" class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">6. Ausgabe / Ersigen / 19.-28. Juni 2026</p>
+            <h1>Lobaerg-Run 2026</h1>
+            <p class="hero-copy">
+              Der Lauf- und Bewegungsevent in Ersigen: zwei markierte, naturnahe Strecken durch Felder, Wiesen und den kuehlen Ersiger Wald. Du startest innerhalb von zehn Tagen dann, wenn Wetter und Motivation passen.
+            </p>
+            <div class="actions">
+              <a class="button light" href="https://trackmaxx.ch/registration/?race=LBR26">Online-Anmeldung <span aria-hidden="true">-></span></a>
+              <a class="button outline" href="#strecken">Strecken ansehen <span aria-hidden="true">-></span></a>
+            </div>
+          </div>
+
+          <div class="fact-panel">
+            <div class="facts">
+              <div class="fact"><p class="label">Start</p><strong>Fr, 19. Juni 2026</strong><span>ab 16:00 Uhr</span></div>
+              <div class="fact"><p class="label">Zielschluss</p><strong>So, 28. Juni 2026</strong><span>14:00 Uhr</span></div>
+              <div class="fact"><p class="label">Startfenster</p><strong>10 Tage</strong><span>06:00-22:00 Uhr</span></div>
+              <div class="fact"><p class="label">Ort</p><strong>Ersigen</strong><span>Sportplatz Moos</span></div>
+            </div>
+            <div class="discipline">
+              <p class="label">Disziplinen</p>
+              <strong>Running / Walking / Nordic Walking / Spazieren / Teamwettbewerbe</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="notice">
+        <div class="wrap notice-grid">
+          <p><strong>TrackMaxx uebernimmt Anmeldung, Zeitmessung und Ranglisten.</strong></p>
+          <p class="body-copy">Die Zeitmessung erfolgt per Chip auf der Startnummer. Dein Resultat erscheint nach dem Zieleinlauf direkt online.</p>
+          <div class="actions" style="margin-top:0">
+            <a class="button outline" href="https://trackmaxx.ch/entrylist/?race=LBR26">Startliste</a>
+            <a class="button outline" href="https://scersigen.ch/wp-content/uploads/Reglement_Lobaergrun_Ersigen_20231204.pdf">Reglement</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="strecken" class="section">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">Strecken</p>
+            <h2 class="section-title">Zwei Routen, ein flexibles Startfenster.</h2>
+            <p class="lead">Beide Strecken sind markiert und stehen vom 19. Juni um 16:00 Uhr bis zum 28. Juni um 14:00 Uhr zur Verfuegung. Gestartet wird selbststaendig zwischen 06:00 und 22:00 Uhr.</p>
+          </div>
+          <div class="route-grid">
+            <article class="card">
+              <a href="http://scersigen.ch/wp-content/uploads/Strecke-2026-lang-scaled.jpg"><img class="route-image" src="https://scersigen.ch/wp-content/uploads/Strecke-2026-lang-scaled.jpg" alt="Langstrecke 13.5 km" /></a>
+              <div class="card-body">
+                <p class="card-kicker">Langstrecke</p>
+                <p class="route-distance">13.5 km</p>
+                <p class="body-copy">Abwechslungsreiche Route durch Felder, Wiesen und den Ersiger Wald.</p>
+                <a class="inline-link" href="http://scersigen.ch/wp-content/uploads/Strecke-2026-lang-scaled.jpg">Streckenplan oeffnen <span aria-hidden="true">-></span></a>
+              </div>
+            </article>
+            <article class="card">
+              <a href="http://scersigen.ch/wp-content/uploads/Strecke-2026-kurz-scaled.jpg"><img class="route-image" src="https://scersigen.ch/wp-content/uploads/Strecke-2026-kurz-scaled.jpg" alt="Kurzstrecke 8.6 km" /></a>
+              <div class="card-body">
+                <p class="card-kicker">Kurzstrecke</p>
+                <p class="route-distance">8.6 km</p>
+                <p class="body-copy">Kompakter Rundkurs fuer Running, Walking, Nordic Walking und Spazieren.</p>
+                <a class="inline-link" href="http://scersigen.ch/wp-content/uploads/Strecke-2026-kurz-scaled.jpg">Streckenplan oeffnen <span aria-hidden="true">-></span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section dark">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">Team-Trophy</p>
+            <h2 class="section-title">Einzelstart anmelden, Teamnamen eintragen, Kilometer sammeln.</h2>
+            <p class="lead">Wer bei der Einzelanmeldung einen Teamnamen vermerkt, nimmt kostenlos an der lobaerg-team-trophy teil. Ein Team ist komplett, sobald mindestens 5 bis maximal 8 Personen denselben Teamnamen verwenden.</p>
+            <p class="lead">Neu ab 2026: verguenstigter Startpreis bei Mehrfachstarts. Der 6. bis 10. Lauf pro Person sind kostenlos.</p>
+          </div>
+          <div class="team-cards">
+            <article class="team-card"><h3>Lobaerg-team-trophy</h3><p class="body-copy">Wertung nach absolvierten Team-Kilometern; Mehrfachstarts zaehlen mit.</p></article>
+            <article class="team-card"><h3>Lobaerg-highspeed-team</h3><p class="body-copy">Durchschnittstempo der 5 schnellsten Teammitglieder in der Disziplin Running.</p></article>
+            <article class="team-card"><h3>Nachtragen moeglich</h3><p class="body-copy">Teamnamen koennen ueber den persoenlichen Aenderungslink oder im TrackMaxx-Konto ergaenzt werden.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="info" class="section">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">Teilnahme</p>
+            <h2 class="section-title">Alles Wichtige vor dem Start.</h2>
+            <div class="actions">
+              <a class="button" href="https://trackmaxx.ch/registration/?race=LBR26">Zur Anmeldung</a>
+              <a class="button outline" href="http://scersigen.ch/wp-content/uploads/Flyer_lobaerg-run_2026.jpg">Flyer Run</a>
+              <a class="button outline" href="http://scersigen.ch/wp-content/uploads/Flyer_lobaerg-walk_2026-1.jpg">Flyer Walk</a>
+            </div>
+          </div>
+          <div class="info-grid">
+            <article class="info-card"><h3>Startnummer</h3><p class="body-copy">Personifizierte Startnummer mit Vorname bei Anmeldung bis Sonntag, 1. Juni 2026, 23:59 Uhr.</p></article>
+            <article class="info-card"><h3>Versand</h3><p class="body-copy">Startnummer-Versand ab 15. Juni bis Freitag, 26. Juni 2026, taeglich per A-Post.</p></article>
+            <article class="info-card"><h3>Mehrfachstarts</h3><p class="body-copy">Weitere Starts koennen fuer CHF 10.- ueber den Aenderungslink oder im TrackMaxx-Konto nachgebucht werden.</p></article>
+            <article class="info-card"><h3>Infrastruktur</h3><p class="body-copy">Keine Garderoben, Duschen oder Wertsachen-Depot. Eine Toilette ist vorhanden.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="wrap prize-grid">
+          <div>
+            <p class="section-kicker">Preise</p>
+            <h2 class="section-title">Finisher:innen, Verlosung und Teampreise.</h2>
+            <p class="lead">Alle Finisher:innen erhalten ein Lobaergerli von Baeckerei Fischer, ein Sommertee oder Suessmost sowie eine Medaille fuer Kinder bis und mit 6. Klasse. Die Naturalpreise koennen bis Samstag, 4. Juli 2026 bei Baeckerei Fischer oder im Cafe Fischer abgeholt werden.</p>
+            <div class="prize-list"><span>Coop-Gutscheine</span><span>Sportmassage</span><span>Team-Erlebnisse</span></div>
+          </div>
+          <img class="media-image" src="https://scersigen.ch/wp-content/uploads/finisherpreise_2023.jpg" alt="Finisherpreise des Lobaerg-Run" />
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap arrival-grid">
+          <article class="arrival-card">
+            <div class="arrival-heading"><span class="pin" aria-hidden="true">⌖</span><h2>Anreise und Start/Ziel</h2></div>
+            <p class="lead">Das Start- und Zielgelaende liegt nahe beim Fussballplatz Moos in Ersigen und ist gut ausgeschildert. Grosser Parkplatz beim Schuetzenhaus Ersigen, Toepfereistrasse 24, 3423 Ersigen.</p>
+            <p class="lead">Mit dem OeV: Bus Nr. 466 ab Bahnhof Burgdorf Richtung Koppigen. Ab Haltestelle Oberdorf, Ersigen sind es 5-7 Gehminuten.</p>
+            <div class="actions"><a class="button outline" href="https://www.sbb.ch/de/">SBB Verbindung</a></div>
+          </article>
+          <article class="program-card">
+            <img src="https://scersigen.ch/wp-content/uploads/Rahmenprogramm-lobaerg-run_2026.jpg" alt="Rahmenprogramm Lobaerg-Run 2026" />
+            <div class="card-body"><h2>Unterhaltung</h2><p class="body-copy">Das Rahmenprogramm 2026 ist auf dem offiziellen Eventbild publiziert.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">Resultate</p>
+            <h2 class="section-title">Ranglisten und Leaderboard.</h2>
+            <p class="lead">Die Ranglisten 2025 sowie die historischen Resultate der bisherigen Austragungen sind bei TrackMaxx verfuegbar.</p>
+            <div class="actions"><a class="button light" href="https://trackmaxx.ch/results/?race=LBR25">Ranglisten 2025</a></div>
+          </div>
+          <div class="record-grid">
+            <article class="record-card"><p class="card-kicker">Frauen 13.5 km</p><strong>Gertrud Wiedemann / 1:00:05</strong></article>
+            <article class="record-card"><p class="card-kicker">Maenner 13.5 km</p><strong>Cedric Lehmann / 46:41</strong></article>
+            <article class="record-card"><p class="card-kicker">Frauen 8.6 km</p><strong>Marie-Claire Hofstetter / 39:08</strong></article>
+            <article class="record-card"><p class="card-kicker">Maenner 8.6 km</p><strong>Christof Kohler / 30:45</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sponsoren" class="section">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">Sponsoren 2026</p>
+            <h2 class="section-title">Lokale Partner machen den Run moeglich.</h2>
+            <p class="lead">Die Sponsorinnen und Sponsoren aus dem bestehenden Run-Auftritt sind hier kompakt als Logo-Rail eingebunden. Interesse am Sponsoring oder Fragen zum Laufevent? Kontakt: <a class="inline-link" href="mailto:lobaerg-run@scersigen.ch">lobaerg-run@scersigen.ch</a></p>
+          </div>
+          <div class="sponsor-showcase">
+            <div class="sponsor-window" aria-label="Sponsoren Logo-Karussell">
+              <div class="sponsor-track">
+                <a class="sponsor-logo" href="https://www.bernerlandbank.ch/Kontakt-Standorte/Standorte"><img src="sponsor-assets/bernerland-bank.png" alt="Bernerland Bank" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mobiliar.ch/generalagenturen/burgdorf/ronnie-luedi"><img src="sponsor-assets/mobiliar.png" alt="Mobiliar" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://faesbau.ch/"><img src="sponsor-assets/faes-bau.jpg" alt="Faes Bau" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bsb-partner.ch/"><img src="sponsor-assets/bsb-partner.jpg" alt="BSB + Partner" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mosermalerag.ch/"><img src="sponsor-assets/moser-maler.png" alt="Moser Maler" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ypsomed.com/de/"><img src="sponsor-assets/ypsomed.jpg" alt="Ypsomed" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://laserteam.ch/"><img src="sponsor-assets/laserteam.jpg" alt="Laserteam" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://www.gate-swiss.ch/"><img src="sponsor-assets/gate-swiss.jpg" alt="Gate Swiss" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.wymobilien.ch/"><img src="sponsor-assets/wymobilien.png" alt="Wyss Immobilien" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immo-lounge.ch/"><img src="sponsor-assets/immo-lounge.png" alt="Immo-Lounge" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immopartner58.ch/"><img src="sponsor-assets/immopartner.png" alt="Immopartner58" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://spatia.ch/"><img src="sponsor-assets/spatia.png" alt="Spatia" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.tomco-personal.ch/"><img src="sponsor-assets/tomco.png" alt="Tomco Personal" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.nordfabrik.ch/"><img src="sponsor-assets/nordfabrik.png" alt="Nordfabrik" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ortho-team.ch/"><img src="sponsor-assets/orthoteam.png" alt="Ortho-Team" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.visana.ch/"><img src="sponsor-assets/visana.png" alt="Visana" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://myvino.ch/"><img src="sponsor-assets/myvino.png" alt="MyVino" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.dayspa.ch/"><img src="sponsor-assets/day-spa.png" alt="Day Spa Burgdorf" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://feldschloesschen.ch/"><img src="sponsor-assets/feldschloesschen.png" alt="Feldschloesschen" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://engagement.migros.ch/de/kulturprozent"><img src="sponsor-assets/migros.png" alt="Migros Kulturprozent" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fobe.sid.be.ch/de/start/sportfonds.html"><img src="sponsor-assets/sportfonds.jpg" alt="Sportfonds Kanton Bern" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bernerlandbank.ch/Kontakt-Standorte/Standorte"><img src="sponsor-assets/bernerland-bank.png" alt="Bernerland Bank" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mobiliar.ch/generalagenturen/burgdorf/ronnie-luedi"><img src="sponsor-assets/mobiliar.png" alt="Mobiliar" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://faesbau.ch/"><img src="sponsor-assets/faes-bau.jpg" alt="Faes Bau" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bsb-partner.ch/"><img src="sponsor-assets/bsb-partner.jpg" alt="BSB + Partner" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mosermalerag.ch/"><img src="sponsor-assets/moser-maler.png" alt="Moser Maler" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ypsomed.com/de/"><img src="sponsor-assets/ypsomed.jpg" alt="Ypsomed" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://laserteam.ch/"><img src="sponsor-assets/laserteam.jpg" alt="Laserteam" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://www.gate-swiss.ch/"><img src="sponsor-assets/gate-swiss.jpg" alt="Gate Swiss" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.wymobilien.ch/"><img src="sponsor-assets/wymobilien.png" alt="Wyss Immobilien" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immo-lounge.ch/"><img src="sponsor-assets/immo-lounge.png" alt="Immo-Lounge" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immopartner58.ch/"><img src="sponsor-assets/immopartner.png" alt="Immopartner58" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://spatia.ch/"><img src="sponsor-assets/spatia.png" alt="Spatia" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.tomco-personal.ch/"><img src="sponsor-assets/tomco.png" alt="Tomco Personal" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.nordfabrik.ch/"><img src="sponsor-assets/nordfabrik.png" alt="Nordfabrik" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ortho-team.ch/"><img src="sponsor-assets/orthoteam.png" alt="Ortho-Team" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.visana.ch/"><img src="sponsor-assets/visana.png" alt="Visana" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://myvino.ch/"><img src="sponsor-assets/myvino.png" alt="MyVino" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.dayspa.ch/"><img src="sponsor-assets/day-spa.png" alt="Day Spa Burgdorf" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://feldschloesschen.ch/"><img src="sponsor-assets/feldschloesschen.png" alt="Feldschloesschen" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://engagement.migros.ch/de/kulturprozent"><img src="sponsor-assets/migros.png" alt="Migros Kulturprozent" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fobe.sid.be.ch/de/start/sportfonds.html"><img src="sponsor-assets/sportfonds.jpg" alt="Sportfonds Kanton Bern" loading="eager" /></a>
+              </div>
+            </div>
+
+            <div class="sponsor-window" aria-label="Preis- und Naturalpartner Logo-Karussell">
+              <div class="sponsor-track reverse">
+                <a class="sponsor-logo" href="https://www.fischer-ersigen.ch/"><img src="sponsor-assets/fischer-beck.jpg" alt="Baeckerei Fischer" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.roethlisbergers-most-obst.ch/"><img src="sponsor-assets/roethlisberger.png" alt="Roethlisberger Obst und Most" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://sommertee.ch/"><img src="sponsor-assets/sommertee.jpg" alt="Sommertee" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://cafefischer.ch/"><img src="sponsor-assets/cafe-fischer.png" alt="Cafe Fischer" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.dregion.ch/2022/01/%C2%ABcoiffure-ren%C3%A9%C2%BB-wird-zu-%C2%ABmr-coiffeur%C2%BB.html"><img src="sponsor-assets/mr-coiffeur.png" alt="Mr Coiffeur" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.aemmefit.ch/"><img src="sponsor-assets/aemme-fit.png" alt="Aemme Fit" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.kurth-scheidegger.ch/"><img src="sponsor-assets/kurth-scheidegger.png" alt="Kurth Scheidegger" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.praxis-serenity.ch/praxis/"><img src="sponsor-assets/praxis-serenity.png" alt="Praxis Serenity" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://emmental.ch/de/"><img src="sponsor-assets/emmental.jpg" alt="Emmental" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.svwe.ch"><img src="sponsor-assets/sv-wiler-ersigen.png" alt="SV Wiler-Ersigen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.savo.ch"><img src="sponsor-assets/savo.jpeg" alt="Savo" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.svwe.ch"><img src="sponsor-assets/one-b.gif" alt="1B" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.stauffers.ch/"><img src="sponsor-assets/stauffers.png" alt="Stauffers" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://dedicationgym.ch/"><img src="sponsor-assets/dedication.png" alt="Dedication Gym" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://sonnen.ch/"><img src="sponsor-assets/sonnen.png" alt="Sonnen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://burgdorferbier.ch/"><img src="sponsor-assets/burgdorfer.png" alt="Burgdorfer Bier" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fischer-ersigen.ch/"><img src="sponsor-assets/fischer-beck.jpg" alt="Baeckerei Fischer" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.roethlisbergers-most-obst.ch/"><img src="sponsor-assets/roethlisberger.png" alt="Roethlisberger Obst und Most" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://sommertee.ch/"><img src="sponsor-assets/sommertee.jpg" alt="Sommertee" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://cafefischer.ch/"><img src="sponsor-assets/cafe-fischer.png" alt="Cafe Fischer" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.dregion.ch/2022/01/%C2%ABcoiffure-ren%C3%A9%C2%BB-wird-zu-%C2%ABmr-coiffeur%C2%BB.html"><img src="sponsor-assets/mr-coiffeur.png" alt="Mr Coiffeur" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.aemmefit.ch/"><img src="sponsor-assets/aemme-fit.png" alt="Aemme Fit" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.kurth-scheidegger.ch/"><img src="sponsor-assets/kurth-scheidegger.png" alt="Kurth Scheidegger" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.praxis-serenity.ch/praxis/"><img src="sponsor-assets/praxis-serenity.png" alt="Praxis Serenity" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://emmental.ch/de/"><img src="sponsor-assets/emmental.jpg" alt="Emmental" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.svwe.ch"><img src="sponsor-assets/sv-wiler-ersigen.png" alt="SV Wiler-Ersigen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.savo.ch"><img src="sponsor-assets/savo.jpeg" alt="Savo" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.svwe.ch"><img src="sponsor-assets/one-b.gif" alt="1B" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.stauffers.ch/"><img src="sponsor-assets/stauffers.png" alt="Stauffers" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://dedicationgym.ch/"><img src="sponsor-assets/dedication.png" alt="Dedication Gym" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://sonnen.ch/"><img src="sponsor-assets/sonnen.png" alt="Sonnen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://burgdorferbier.ch/"><img src="sponsor-assets/burgdorfer.png" alt="Burgdorfer Bier" loading="eager" /></a>
+              </div>
+            </div>
+
+            <article class="sponsor-note">
+              <h3>Logo-Partner aus der bestehenden Run-Seite</h3>
+              <p class="body-copy">Start-Ziel, Zeitmessung, Flyer, Naturalpreise, Teampreise und weitere Unterstuetzung sind in den beiden kompakten Logo-Reihen sichtbar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <strong>Sportclub Ersigen / Lobaerg-Run 2026</strong>
+        <div class="footer-links">
+          <a href="https://www.instagram.com/scersigen/">Instagram</a>
+          <a href="http://scersigen.ch/impressum">Impressum</a>
+          <a href="mailto:lobaerg-run@scersigen.ch">Kontakt</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
