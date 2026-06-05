@@ -478,22 +478,110 @@
         font-size: 1.25rem;
       }
 
-      .sponsor-grid {
+      .sponsor-showcase {
         display: grid;
-        gap: 15px;
+        gap: 18px;
+        min-width: 0;
       }
 
-      .sponsor-card {
+      .sponsor-window {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(24, 33, 24, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        padding: 14px 0;
+      }
+
+      .sponsor-window::before,
+      .sponsor-window::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 48px;
+        content: "";
+        pointer-events: none;
+      }
+
+      .sponsor-window::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--paper), rgba(244, 241, 231, 0));
+      }
+
+      .sponsor-window::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--paper), rgba(244, 241, 231, 0));
+      }
+
+      .sponsor-track {
+        display: flex;
+        width: max-content;
+        gap: 12px;
+        padding: 0 14px;
+        animation: sponsor-scroll 52s linear infinite;
+      }
+
+      .sponsor-track.reverse {
+        animation-duration: 58s;
+        animation-direction: reverse;
+      }
+
+      .sponsor-window:hover .sponsor-track {
+        animation-play-state: paused;
+      }
+
+      .sponsor-logo {
+        display: grid;
+        flex: 0 0 166px;
+        height: 88px;
+        place-items: center;
+        border: 1px solid rgba(24, 33, 24, 0.09);
+        border-radius: 8px;
+        background: var(--white);
+        padding: 14px;
+      }
+
+      .sponsor-logo img {
+        max-height: 58px;
+        width: auto;
+        max-width: 138px;
+        object-fit: contain;
+      }
+
+      .sponsor-logo.square img {
+        max-height: 66px;
+      }
+
+      .sponsor-note {
+        display: grid;
+        gap: 12px;
         border: 1px solid rgba(24, 33, 24, 0.1);
         border-radius: 8px;
         background: var(--white);
-        padding: 22px;
+        padding: 20px;
       }
 
-      .sponsor-card h3 {
+      .sponsor-note h3 {
         margin: 0;
         font-size: 1.05rem;
         font-weight: 950;
+      }
+
+      @keyframes sponsor-scroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .sponsor-track {
+          animation: none;
+        }
       }
 
       .footer {
@@ -562,6 +650,27 @@
         .arrival-grid,
         .notice-grid {
           grid-template-columns: 1fr;
+        }
+
+        .sponsor-window {
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .sponsor-window::before,
+        .sponsor-window::after {
+          display: none;
+        }
+
+        .sponsor-track,
+        .sponsor-track.reverse {
+          animation: none;
+        }
+
+        .sponsor-logo {
+          flex-basis: 150px;
+          scroll-snap-align: start;
         }
 
         .notice-grid {
@@ -774,13 +883,97 @@
           <div>
             <p class="section-kicker">Sponsoren 2026</p>
             <h2 class="section-title">Lokale Partner machen den Run moeglich.</h2>
-            <p class="lead">Interesse am Sponsoring oder Fragen zum Laufevent? Kontakt: <a class="inline-link" href="mailto:lobaerg-run@scersigen.ch">lobaerg-run@scersigen.ch</a></p>
+            <p class="lead">Die Sponsorinnen und Sponsoren aus dem bestehenden Run-Auftritt sind hier kompakt als Logo-Rail eingebunden. Interesse am Sponsoring oder Fragen zum Laufevent? Kontakt: <a class="inline-link" href="mailto:lobaerg-run@scersigen.ch">lobaerg-run@scersigen.ch</a></p>
           </div>
-          <div class="sponsor-grid">
-            <article class="sponsor-card"><h3>Start-Ziel-Sponsor</h3><p class="body-copy">Bernerland Bank</p></article>
-            <article class="sponsor-card"><h3>Zeitmess- und Diplom-Sponsoring</h3><p class="body-copy">Mobiliar / Faes Bau / BSB + Partner / Moser Maler / Ypsomed / MK Finanzpartner / Laserteam</p></article>
-            <article class="sponsor-card"><h3>Newsletter- und Flyer-Sponsoren</h3><p class="body-copy">Gate Swiss / Wyss Immobilien / Immo-Lounge / Immopartner58 / Spatia / Tomco Personal</p></article>
-            <article class="sponsor-card"><h3>Unterstuetzung</h3><p class="body-copy">Feldschloesschen / Migros Kulturprozent / Sportfonds Kanton Bern</p></article>
+          <div class="sponsor-showcase">
+            <div class="sponsor-window" aria-label="Sponsoren Logo-Karussell">
+              <div class="sponsor-track">
+                <a class="sponsor-logo" href="https://www.bernerlandbank.ch/Kontakt-Standorte/Standorte"><img src="/sponsor-assets/bernerland-bank.png" alt="Bernerland Bank" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mobiliar.ch/generalagenturen/burgdorf/ronnie-luedi"><img src="/sponsor-assets/mobiliar.png" alt="Mobiliar" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://faesbau.ch/"><img src="/sponsor-assets/faes-bau.jpg" alt="Faes Bau" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bsb-partner.ch/"><img src="/sponsor-assets/bsb-partner.jpg" alt="BSB + Partner" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mosermalerag.ch/"><img src="/sponsor-assets/moser-maler.png" alt="Moser Maler" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ypsomed.com/de/"><img src="/sponsor-assets/ypsomed.jpg" alt="Ypsomed" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://laserteam.ch/"><img src="/sponsor-assets/laserteam.jpg" alt="Laserteam" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://www.gate-swiss.ch/"><img src="/sponsor-assets/gate-swiss.jpg" alt="Gate Swiss" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.wymobilien.ch/"><img src="/sponsor-assets/wymobilien.png" alt="Wyss Immobilien" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immo-lounge.ch/"><img src="/sponsor-assets/immo-lounge.png" alt="Immo-Lounge" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immopartner58.ch/"><img src="/sponsor-assets/immopartner.png" alt="Immopartner58" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://spatia.ch/"><img src="/sponsor-assets/spatia.png" alt="Spatia" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.tomco-personal.ch/"><img src="/sponsor-assets/tomco.png" alt="Tomco Personal" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.nordfabrik.ch/"><img src="/sponsor-assets/nordfabrik.png" alt="Nordfabrik" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ortho-team.ch/"><img src="/sponsor-assets/orthoteam.png" alt="Ortho-Team" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.visana.ch/"><img src="/sponsor-assets/visana.png" alt="Visana" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://myvino.ch/"><img src="/sponsor-assets/myvino.png" alt="MyVino" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.dayspa.ch/"><img src="/sponsor-assets/day-spa.png" alt="Day Spa Burgdorf" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://feldschloesschen.ch/"><img src="/sponsor-assets/feldschloesschen.png" alt="Feldschloesschen" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://engagement.migros.ch/de/kulturprozent"><img src="/sponsor-assets/migros.png" alt="Migros Kulturprozent" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fobe.sid.be.ch/de/start/sportfonds.html"><img src="/sponsor-assets/sportfonds.jpg" alt="Sportfonds Kanton Bern" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bernerlandbank.ch/Kontakt-Standorte/Standorte"><img src="/sponsor-assets/bernerland-bank.png" alt="Bernerland Bank" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mobiliar.ch/generalagenturen/burgdorf/ronnie-luedi"><img src="/sponsor-assets/mobiliar.png" alt="Mobiliar" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://faesbau.ch/"><img src="/sponsor-assets/faes-bau.jpg" alt="Faes Bau" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.bsb-partner.ch/"><img src="/sponsor-assets/bsb-partner.jpg" alt="BSB + Partner" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.mosermalerag.ch/"><img src="/sponsor-assets/moser-maler.png" alt="Moser Maler" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ypsomed.com/de/"><img src="/sponsor-assets/ypsomed.jpg" alt="Ypsomed" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://laserteam.ch/"><img src="/sponsor-assets/laserteam.jpg" alt="Laserteam" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://www.gate-swiss.ch/"><img src="/sponsor-assets/gate-swiss.jpg" alt="Gate Swiss" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.wymobilien.ch/"><img src="/sponsor-assets/wymobilien.png" alt="Wyss Immobilien" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immo-lounge.ch/"><img src="/sponsor-assets/immo-lounge.png" alt="Immo-Lounge" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.immopartner58.ch/"><img src="/sponsor-assets/immopartner.png" alt="Immopartner58" loading="eager" /></a>
+                <a class="sponsor-logo" href="http://spatia.ch/"><img src="/sponsor-assets/spatia.png" alt="Spatia" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.tomco-personal.ch/"><img src="/sponsor-assets/tomco.png" alt="Tomco Personal" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.nordfabrik.ch/"><img src="/sponsor-assets/nordfabrik.png" alt="Nordfabrik" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.ortho-team.ch/"><img src="/sponsor-assets/orthoteam.png" alt="Ortho-Team" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.visana.ch/"><img src="/sponsor-assets/visana.png" alt="Visana" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://myvino.ch/"><img src="/sponsor-assets/myvino.png" alt="MyVino" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.dayspa.ch/"><img src="/sponsor-assets/day-spa.png" alt="Day Spa Burgdorf" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://feldschloesschen.ch/"><img src="/sponsor-assets/feldschloesschen.png" alt="Feldschloesschen" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://engagement.migros.ch/de/kulturprozent"><img src="/sponsor-assets/migros.png" alt="Migros Kulturprozent" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fobe.sid.be.ch/de/start/sportfonds.html"><img src="/sponsor-assets/sportfonds.jpg" alt="Sportfonds Kanton Bern" loading="eager" /></a>
+              </div>
+            </div>
+
+            <div class="sponsor-window" aria-label="Preis- und Naturalpartner Logo-Karussell">
+              <div class="sponsor-track reverse">
+                <a class="sponsor-logo" href="https://www.fischer-ersigen.ch/"><img src="/sponsor-assets/fischer-beck.jpg" alt="Baeckerei Fischer" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.roethlisbergers-most-obst.ch/"><img src="/sponsor-assets/roethlisberger.png" alt="Roethlisberger Obst und Most" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://sommertee.ch/"><img src="/sponsor-assets/sommertee.jpg" alt="Sommertee" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://cafefischer.ch/"><img src="/sponsor-assets/cafe-fischer.png" alt="Cafe Fischer" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.dregion.ch/2022/01/%C2%ABcoiffure-ren%C3%A9%C2%BB-wird-zu-%C2%ABmr-coiffeur%C2%BB.html"><img src="/sponsor-assets/mr-coiffeur.png" alt="Mr Coiffeur" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.aemmefit.ch/"><img src="/sponsor-assets/aemme-fit.png" alt="Aemme Fit" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.kurth-scheidegger.ch/"><img src="/sponsor-assets/kurth-scheidegger.png" alt="Kurth Scheidegger" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.praxis-serenity.ch/praxis/"><img src="/sponsor-assets/praxis-serenity.png" alt="Praxis Serenity" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://emmental.ch/de/"><img src="/sponsor-assets/emmental.jpg" alt="Emmental" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.svwe.ch"><img src="/sponsor-assets/sv-wiler-ersigen.png" alt="SV Wiler-Ersigen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.savo.ch"><img src="/sponsor-assets/savo.jpeg" alt="Savo" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.svwe.ch"><img src="/sponsor-assets/one-b.gif" alt="1B" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.stauffers.ch/"><img src="/sponsor-assets/stauffers.png" alt="Stauffers" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://dedicationgym.ch/"><img src="/sponsor-assets/dedication.png" alt="Dedication Gym" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://sonnen.ch/"><img src="/sponsor-assets/sonnen.png" alt="Sonnen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://burgdorferbier.ch/"><img src="/sponsor-assets/burgdorfer.png" alt="Burgdorfer Bier" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.fischer-ersigen.ch/"><img src="/sponsor-assets/fischer-beck.jpg" alt="Baeckerei Fischer" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.roethlisbergers-most-obst.ch/"><img src="/sponsor-assets/roethlisberger.png" alt="Roethlisberger Obst und Most" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://sommertee.ch/"><img src="/sponsor-assets/sommertee.jpg" alt="Sommertee" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://cafefischer.ch/"><img src="/sponsor-assets/cafe-fischer.png" alt="Cafe Fischer" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.dregion.ch/2022/01/%C2%ABcoiffure-ren%C3%A9%C2%BB-wird-zu-%C2%ABmr-coiffeur%C2%BB.html"><img src="/sponsor-assets/mr-coiffeur.png" alt="Mr Coiffeur" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.aemmefit.ch/"><img src="/sponsor-assets/aemme-fit.png" alt="Aemme Fit" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.kurth-scheidegger.ch/"><img src="/sponsor-assets/kurth-scheidegger.png" alt="Kurth Scheidegger" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.praxis-serenity.ch/praxis/"><img src="/sponsor-assets/praxis-serenity.png" alt="Praxis Serenity" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://emmental.ch/de/"><img src="/sponsor-assets/emmental.jpg" alt="Emmental" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.svwe.ch"><img src="/sponsor-assets/sv-wiler-ersigen.png" alt="SV Wiler-Ersigen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://www.savo.ch"><img src="/sponsor-assets/savo.jpeg" alt="Savo" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.svwe.ch"><img src="/sponsor-assets/one-b.gif" alt="1B" loading="eager" /></a>
+                <a class="sponsor-logo" href="https://www.stauffers.ch/"><img src="/sponsor-assets/stauffers.png" alt="Stauffers" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://dedicationgym.ch/"><img src="/sponsor-assets/dedication.png" alt="Dedication Gym" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://sonnen.ch/"><img src="/sponsor-assets/sonnen.png" alt="Sonnen" loading="eager" /></a>
+                <a class="sponsor-logo square" href="https://burgdorferbier.ch/"><img src="/sponsor-assets/burgdorfer.png" alt="Burgdorfer Bier" loading="eager" /></a>
+              </div>
+            </div>
+
+            <article class="sponsor-note">
+              <h3>Logo-Partner aus der bestehenden Run-Seite</h3>
+              <p class="body-copy">Start-Ziel, Zeitmessung, Flyer, Naturalpreise, Teampreise und weitere Unterstuetzung sind in den beiden kompakten Logo-Reihen sichtbar.</p>
+            </article>
           </div>
         </div>
       </section>
