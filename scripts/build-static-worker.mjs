@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, extname, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -7,6 +7,7 @@ const hosting = await readFile(resolve(root, ".openai/hosting.json"), "utf8");
 const sponsorAssetDir = resolve(root, "public/sponsor-assets");
 const serverEntry = resolve(root, "dist/server/index.js");
 const hostingJson = resolve(root, "dist/.openai/hosting.json");
+const staticOut = resolve(root, "dist/static");
 
 const contentTypes = {
   ".gif": "image/gif",
@@ -37,5 +38,10 @@ await writeFile(
   hostingJson,
   hosting,
 );
+
+// Copy static files for Vercel deployment
+await mkdir(staticOut, { recursive: true });
+await writeFile(resolve(staticOut, "index.html"), html);
+await cp(resolve(root, "public"), staticOut, { recursive: true });
 
 console.log("Built static Worker artifact in dist/");
