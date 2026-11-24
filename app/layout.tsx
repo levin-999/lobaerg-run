@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lobärg-Run 2026 | Ersigen",
+  title: "Lobärg-Run 2027 | Ersigen",
   description:
-    "Der Lauf- und Bewegungsevent in Ersigen vom 19. bis 28. Juni 2026.",
+    "Der Lauf- und Bewegungsevent in Ersigen vom 18. bis 27. Juni 2027.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

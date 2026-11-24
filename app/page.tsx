@@ -1,23 +1,21 @@
 import type { ReactNode } from "react";
 
 const links = {
-  registration: "https://trackmaxx.ch/registration/?race=LBR26",
-  startList: "https://trackmaxx.ch/entrylist/?race=LBR26",
-  rules: "https://scersigen.ch/wp-content/uploads/Reglement_Lobaergrun_Ersigen_20231204.pdf",
-  flyerRun: "http://scersigen.ch/wp-content/uploads/Flyer_lobaerg-run_2026.jpg",
-  flyerWalk: "http://scersigen.ch/wp-content/uploads/Flyer_lobaerg-walk_2026-1.jpg",
-  longRoute: "http://scersigen.ch/wp-content/uploads/Strecke-2026-lang-scaled.jpg",
-  shortRoute: "http://scersigen.ch/wp-content/uploads/Strecke-2026-kurz-scaled.jpg",
-  results2025: "https://trackmaxx.ch/results/?race=LBR25",
+  registration: "https://trackmaxx.ch/registration/?race=LBR27",
+  startList: "https://trackmaxx.ch/entrylist/?race=LBR27",
+  rules: "/lobaerg-assets/reglement.pdf",
+  longRoute: "/lobaerg-assets/route-long.jpg",
+  shortRoute: "/lobaerg-assets/route-short.jpg",
+  results2026: "https://trackmaxx.ch/results/?race=LBR26",
   sbb: "https://www.sbb.ch/de/",
   instagram: "https://www.instagram.com/scersigen/",
-  impressum: "http://scersigen.ch/impressum",
+  impressum: "https://scersigen.ch/impressum",
 };
 
 const facts = [
-  ["Start", "Fr, 19. Juni 2026", "ab 16:00 Uhr"],
-  ["Zielschluss", "So, 28. Juni 2026", "14:00 Uhr"],
-  ["Startfenster", "10 Tage", "06:00-22:00 Uhr"],
+  ["Start", "Fr, 18. Juni 2027", "Uhrzeit folgt"],
+  ["Zielschluss", "So, 27. Juni 2027", "Uhrzeit folgt"],
+  ["Startfenster", "10 Tage", "Startzeit frei wählbar"],
   ["Ort", "Ersigen", "Sportplatz Moos"],
 ];
 
@@ -141,9 +139,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(22,33,24,.94),rgba(22,33,24,.70)_43%,rgba(22,33,24,.22))]" />
         <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-10 px-5 py-16 md:grid-cols-[1.05fr_.95fr] md:px-8">
           <div className="pt-10 text-white">
-            <p className="text-sm font-bold uppercase text-lime">6. Ausgabe / Ersigen / 19.-28. Juni 2026</p>
+            <p className="text-sm font-bold uppercase text-lime">7. Ausgabe / Ersigen / 18.–27. Juni 2027</p>
             <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[.98] md:text-7xl">
-              Lobärg-Run 2026
+              Lobärg-Run 2027
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/88 md:text-xl">
               Der Lauf- und Bewegungsevent in Ersigen: zwei markierte, naturnahe Strecken durch Felder, Wiesen und den kühlen Ersiger Wald. Du startest innerhalb von zehn Tagen dann, wenn Wetter und Motivation passen.
@@ -189,7 +187,7 @@ export default function Home() {
             <p className="section-kicker">Strecken</p>
             <h2 className="section-title">Zwei Routen, ein flexibles Startfenster.</h2>
             <p className="mt-5 leading-8 text-ink/68">
-              Beide Strecken sind markiert und stehen vom 19. Juni um 16:00 Uhr bis zum 28. Juni um 14:00 Uhr zur Verfügung. Gestartet wird selbstständig zwischen 06:00 und 22:00 Uhr.
+              Beide Strecken sind markiert und stehen vom 18. bis 27. Juni 2027 zur Verfügung. Starttag und Startzeit bestimmst du selbst. Die gezeigten Pläne sind von 2026.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
@@ -221,7 +219,7 @@ export default function Home() {
               Wer bei der Einzelanmeldung einen Teamnamen vermerkt, nimmt kostenlos an der lobärg-team-trophy teil. Ein Team ist komplett, sobald mindestens 5 bis maximal 8 Personen denselben Teamnamen verwenden.
             </p>
             <p className="mt-4 leading-8 text-white/76">
-              Neu ab 2026: vergünstigter Startpreis bei Mehrfachstarts. Der 6. bis 10. Lauf pro Person sind kostenlos.
+              Seit 2026: vergünstigter Startpreis bei Mehrfachstarts. Der 6. bis 10. Lauf pro Person sind kostenlos.
             </p>
           </div>
           <div className="grid gap-4">
@@ -246,15 +244,13 @@ export default function Home() {
             <h2 className="section-title">Alles Wichtige vor dem Start.</h2>
             <div className="mt-7 flex flex-wrap gap-3">
               <ExternalLink href={links.registration}>Zur Anmeldung</ExternalLink>
-              <ExternalLink href={links.flyerRun} variant="outline">Flyer Run</ExternalLink>
-              <ExternalLink href={links.flyerWalk} variant="outline">Flyer Walk</ExternalLink>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {[
-              ["Startnummer", "Personifizierte Startnummer mit Vorname bei Anmeldung bis Sonntag, 1. Juni 2026, 23:59 Uhr."],
-              ["Versand", "Startnummer-Versand ab 15. Juni bis Freitag, 26. Juni 2026, täglich per A-Post."],
-              ["Mehrfachstarts", "Weitere Starts können für CHF 10.- über den Änderungslink oder im TrackMaxx-Konto nachgebucht werden."],
+              ["Startnummer", "Personifizierte Startnummer mit Vorname bei frühzeitiger Anmeldung. Die Frist für 2027 folgt."],
+              ["Versand", "Die Startnummern werden per A-Post verschickt. Die Versanddaten für 2027 folgen."],
+              ["Mehrfachstarts", "Weitere Starts können über den Änderungslink oder im TrackMaxx-Konto nachgebucht werden."],
               ["Infrastruktur", "Keine Garderoben, Duschen oder Wertsachen-Depot. Eine Toilette ist vorhanden."],
             ].map(([title, text]) => (
               <article key={title} className="rounded-lg border border-ink/10 bg-white p-5 shadow-sm">
@@ -272,7 +268,7 @@ export default function Home() {
             <p className="section-kicker">Preise</p>
             <h2 className="section-title">Finisher:innen, Verlosung und Teampreise.</h2>
             <p className="mt-5 leading-8 text-ink/68">
-              Alle Finisher:innen erhalten ein Lobärgerli von Bäckerei Fischer, ein Sommertee oder Süssmost sowie eine Medaille für Kinder bis und mit 6. Klasse. Die Naturalpreise können bis Samstag, 4. Juli 2026 bei Bäckerei Fischer oder im Café Fischer abgeholt werden.
+              Alle Finisher:innen erhalten ein Lobärgerli von Bäckerei Fischer, ein Sommertee oder Süssmost sowie eine Medaille für Kinder bis und mit 6. Klasse. Die Naturalpreise können bei Bäckerei Fischer oder im Café Fischer abgeholt werden. Stand 2026; Angaben für 2027 folgen.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {["Coop-Gutscheine", "Sportmassage", "Team-Erlebnisse"].map((item) => (
@@ -307,7 +303,7 @@ export default function Home() {
             <div className="p-6">
               <h2 className="text-3xl font-black">Unterhaltung</h2>
               <p className="mt-3 leading-8 text-ink/68">
-                Das Rahmenprogramm 2026 ist auf dem offiziellen Eventbild publiziert.
+                Rückblick auf das Rahmenprogramm 2026. Das Programm 2027 folgt.
               </p>
             </div>
           </article>
@@ -320,10 +316,10 @@ export default function Home() {
             <p className="section-kicker text-lime">Resultate</p>
             <h2 className="section-title">Ranglisten und Leaderboard.</h2>
             <p className="mt-5 leading-8 text-white/72">
-              Die Ranglisten 2025 sowie die historischen Resultate der bisherigen Austragungen sind bei TrackMaxx verfügbar.
+              Die Ranglisten 2026 sowie die historischen Resultate der bisherigen Austragungen sind bei TrackMaxx verfügbar.
             </p>
             <div className="mt-7">
-              <ExternalLink href={links.results2025} variant="light">Ranglisten 2025</ExternalLink>
+              <ExternalLink href={links.results2026} variant="light">Ranglisten 2026</ExternalLink>
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -364,7 +360,7 @@ export default function Home() {
 
       <footer className="border-t border-ink/10 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-ink/65 md:flex-row md:items-center md:justify-between md:px-8">
-          <p className="font-semibold text-ink">Sportclub Ersigen / Lobärg-Run 2026</p>
+          <p className="font-semibold text-ink">Sportclub Ersigen / Lobärg-Run 2027</p>
           <div className="flex flex-wrap gap-5">
             <a href={links.instagram}>Instagram</a>
             <a href={links.impressum}>Impressum</a>
