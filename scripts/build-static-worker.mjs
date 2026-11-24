@@ -3,7 +3,7 @@ import { dirname, extname, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 // Public origin used for canonical URL, Open Graph, robots.txt and sitemap.xml.
-const siteUrl = (process.env.SITE_URL || "https://lobaergrun.ch").replace(/\/+$/, "");
+const siteUrl = (process.env.SITE_URL || "https://lobaerg-run.ch").replace(/\/+$/, "");
 const renderPage = async (name) =>
   (await readFile(resolve(root, "static", name), "utf8")).replaceAll("__SITE_URL__", siteUrl);
 const html = await renderPage("index.html");
